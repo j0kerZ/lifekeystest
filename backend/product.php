@@ -6,17 +6,17 @@
 	}
 
 	require 'dbconnect.php';
-
+	
 	$data = json_decode(file_get_contents('php://input'),TRUE);
 	if(empty($data))
 		$data = $_POST;
 
 	switch ($data["action"]){
 		case "getall":
-			$codes = mysqli_query($dbconn, "SELECT * FROM `Codes`");
-			if(mysqli_num_rows($codes) > 0){
-				$allcodes = mysqli_fetch_all($codes, MYSQLI_ASSOC);
-				echo json_encode(["success"=>1,"codes"=>$allcodes]);
+			$products = mysqli_query($dbconn, "SELECT * FROM `Products`");
+			if(mysqli_num_rows($products) > 0){
+				$allproducts = mysqli_fetch_all($products, MYSQLI_ASSOC);
+				echo json_encode(["success"=>1,"products"=>$allproducts]);
 			}
 			else{
 				echo json_encode(["success"=>0]);
