@@ -13,7 +13,7 @@
 
 	switch ($data["action"]){
 		case "getall":
-			$codes = mysqli_query($dbconn, "SELECT * FROM `Codes`");
+			$codes = mysqli_query($dbconn, "SELECT * FROM `codes`");
 			if(mysqli_num_rows($codes) > 0){
 				$allcodes = mysqli_fetch_all($codes, MYSQLI_ASSOC);
 				echo json_encode(["success"=>1,"codes"=>$allcodes]);
